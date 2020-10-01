@@ -10,9 +10,37 @@ class CartItem extends React.Component{
     // either use this bind function or use example below using arrow function to automatically bind this
     //     this.increaseQuantity=this.increaseQuantity.bind(this);
      }
+    //  Function To increase quantity by clicking on + icon
     increaseQuantity = () => {
-       console.log(this.state.qty +=1);
+    //    console.log(this.state.qty);
+    // set State form 1
+    // It is used to display the increase quantity or re-render or to change the state
+    // Here object is passing in the setState Function 
+    // this.setState({
+    //     qty:this.state.qty+= 1
+    // });
+
+    // OR By using callback Function inside a setState Method
+    // if previous state requires use this
+    this.setState((prevState)=>{
+        return{
+            qty: this.state.qty + 1
+        } 
+    });
     }
+
+    //  Function To decrease quantity by clicking on - icon
+        decreaseQuantity=() => {
+            if(this.state.qty<=0){
+                return;
+            }
+            this.setState({
+                qty:this.state.qty - 1
+            });
+        }
+
+
+    
     render(){
         const {price,title,qty}=this.state;
         return(
@@ -27,7 +55,7 @@ class CartItem extends React.Component{
                     <div className= 'cart-item-actions'> 
                         {/* Buttons */}
                         <img alt='increase' className='action-icons' src='https://www.flaticon.com/svg/static/icons/svg/753/753317.svg' onClick={this.increaseQuantity} ></img>
-                        <img alt='decrease' className='action-icons' src='https://www.flaticon.com/svg/static/icons/svg/929/929430.svg'></img>
+                        <img alt='decrease' className='action-icons' src='https://www.flaticon.com/svg/static/icons/svg/929/929430.svg' onClick={this.decreaseQuantity}></img>
                         <img src="https://www.flaticon.com/svg/static/icons/svg/3221/3221897.svg" alt="delete" className='action-icons'/>
                         
 
