@@ -38,9 +38,6 @@ class CartItem extends React.Component{
                 qty:this.state.qty - 1
             });
         }
-
-
-    
     render(){
         const {price,title,qty}=this.state;
         return(
@@ -68,10 +65,10 @@ class CartItem extends React.Component{
 
 const styles={
     image:{
-    height:200,
-    width:200,
-    borderRadius:50,
-    backgroundColor:'black'
+    height:100,
+    width:100,
+    borderRadius:20,
+    backgroundColor:'red'
 
     }
 }
