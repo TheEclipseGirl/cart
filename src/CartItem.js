@@ -1,5 +1,5 @@
 import React from 'react';
-class CartItem extends React.Component{
+const CartItem =(props)=> {
 
     // constructor(props){
     //     super(props);
@@ -43,8 +43,8 @@ class CartItem extends React.Component{
         //         qty:this.state.qty - 1
         //     });
         // }
-    render(){
-        const {price,title,qty,img}=this.props.product;
+ 
+        const {price,title,qty,img}=props.product;
         return(
             <div className='cart-item'>
                 <div className='left-block'>
@@ -57,9 +57,9 @@ class CartItem extends React.Component{
                     
                     <div className= 'cart-item-actions'> 
                         {/* Buttons */}
-                        <img alt='increase' className='action-icons' src='https://www.flaticon.com/svg/static/icons/svg/753/753317.svg' onClick={()=> this.props.increaseQty(this.props.product)} ></img>
-                        <img alt='decrease' className='action-icons' src='https://www.flaticon.com/svg/static/icons/svg/929/929430.svg' onClick={()=> this.props.decreaseQty(this.props.product)}></img>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/3221/3221897.svg" alt="delete" className='action-icons' onClick={()=> this.props.deleteProduct(this.props.product)}/>
+                        <img alt='increase' className='action-icons' src='https://www.flaticon.com/svg/static/icons/svg/753/753317.svg' onClick={()=>props.onIncreaseQuantity(props.product)} ></img>
+                        <img alt='decrease' className='action-icons' src='https://www.flaticon.com/svg/static/icons/svg/929/929430.svg' onClick={()=>props.onDecreaseQuantity(props.product)}></img>
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/3221/3221897.svg" alt="delete" className='action-icons' onClick={()=>props.onDeleteProduct(props.product)}/>
                         
 
                     </div>
@@ -67,7 +67,7 @@ class CartItem extends React.Component{
             </div>
         );
     }
-}
+
 
 const styles={
     image:{
