@@ -1,12 +1,14 @@
 import React from 'react';
 
 function Navbar(props){
+    
     return (
         <div style={styles.nav}>
           <div style={styles.cartIconContainer}>
             <img style={styles.cartIcon} src="https://www.flaticon.com/svg/static/icons/svg/630/630746.svg" alt="cart-icon" />
-    <span style={styles.cartCount}>{props.count}</span>
-          </div>
+            <span style={styles.cartCount}>{props.count}</span>
+        </div>
+        <span style={styles.total}><b>Total</b> Rs.{props.total}/-</span>
         </div>
       );
 }
@@ -33,6 +35,9 @@ const styles = {
       position: 'absolute',
       right: 0,
       top: -9
+    },
+    total:{
+        color:"white"
     }
   };
   
